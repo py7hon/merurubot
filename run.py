@@ -21,7 +21,7 @@ def getAccessToken(filename='access token.txt'):
     return Path(filename).read_text().strip()
 
 def getStatus(soup, element='span', html_class='gallery'):
-    html_elements = soup.find(element, {'class': html_id})
+    html_elements = soup.find(element, {'class': html_class})
     paragraphs = ''.join(map(str, html_elements.contents))
     paragraphs = paragraphs.replace('</p>', '<p>').split('<p>')
     status_text = paragraphs[1]
